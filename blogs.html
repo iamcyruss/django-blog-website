@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block mymessage %}
+{% for blog in blogs %}
+
+<table style="width: 100%;" >
+  <tbody>
+    <tr>
+      <td style="width: 15%;" >&nbsp;</td>
+      <td style="width: 70%;" >
+<div class="col-md-6 w-100 p-3">
+      <div class="w-100 p-3 row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-lg h-md-250 position-relative bg-secondary">
+        <div class="w-100 p-3 col d-flex flex-column position-static">
+          <p class="text-monospace text-light">Blog Post #{{ blog.id }}:</p>
+          <h3 class="mb-0">{{ blog.title }}</h3>
+          <div class="mb-1 text-muted">Date published: {{ blog.pub_date}}</div>
+          <br>
+          <p class="card-text mb-auto"><b>Summary:</b> <br>{{ blog.summary }}</p>
+          <a href="{% url 'blog_detail' blog.slug %}" class="badge badge-light">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <img src={{ blog.img_url }}>
+        </div>
+      </div>
+    </div>
+</td>
+
+<td style="width: 15%;" >&nbsp;</td>
+
+</tr>
+</tbody>
+</table>
+
+{% endfor %}
+{% endblock %}
+
+  </body>
+</html>

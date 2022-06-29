@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+
+{% block mymessage %}
+
+<table style="width: 100%;" >
+  <tbody>
+    <tr>
+      <td style="width: 15%;" >&nbsp;</td>
+      <td style="width: 70%;" >
+        <div class="card border-secondary mb-3 w-100 p-3 row">
+          <div class="card-header">Blog Post: #{{ blog.id }}</div>
+          <div class="card-body">
+            <h2 class="card-title">{{ blog.title }}</h2>
+            <br>
+            <h4>Summary:</h4>
+            <p class="card-text">{{ blog.summary }}</p>
+            <h4>Things I learned:</h4>
+            <p class="card-text">{{ blog.learned }}</p>
+            <img src={{ blog.img_url }}>
+            <br>
+            <br>
+            <h4>Links:</h4>
+            <a href={{ blog.git_url }} target="_blank" class="card-link">Github</a>
+          </div>
+        </div>
+      </td>
+      <td style="width: 15%;" >&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+
+{% endblock %}
